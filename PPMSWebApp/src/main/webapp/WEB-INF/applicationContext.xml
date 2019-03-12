@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:beans="http://www.springframework.org/schema/beans"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+ 
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ppms" />
+		<property name="username" value="root" />
+		<property name="password" value="root123"/>
+	</bean> 
+	
+	 <!-- <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/ppms" />
+		<property name="username" value="mainadmin"/>
+		<property name="password" value="223632@ST"/>
+	 </bean> -->  
+	 
+	 <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+		<property name="checkWriteOperations" value="false"></property>
+	</bean>     
+
+	 
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.ppms.pojo.UserPojo</value>
+				<value>com.ppms.pojo.RawProductPojo</value>
+				<value>com.ppms.pojo.RawSupplierPojo</value>
+				<value>com.ppms.pojo.SupplierGroupPojo</value>
+				<value>com.ppms.pojo.RawReceivedPojo</value>
+				<value>com.ppms.pojo.RawReceivedProductPojo</value>
+				<value>com.ppms.pojo.GstReceivedPojo</value>
+				<value>com.ppms.pojo.GstReceivedProductPojo</value>
+				<value>com.ppms.pojo.DispatchRawProductPojo</value>
+				<value>com.ppms.pojo.DispatchesRawProductPojo</value>
+				<value>com.ppms.pojo.ManufactureProductPojo</value>
+				<value>com.ppms.pojo.SheetMfgDetailsPojo</value>
+				<value>com.ppms.pojo.SheetMfgsPojo</value>
+				<value>com.ppms.pojo.SheetMfgProductPojo</value>
+				<value>com.ppms.pojo.ProductMfgDetailsPojo</value>
+				<value>com.ppms.pojo.ProductMfgPojo</value>
+				<value>com.ppms.pojo.ProductPackagingPojo</value>
+				<value>com.ppms.pojo.ProductPackagingDetailsPojo</value>
+				<value>com.ppms.pojo.BoxingProductPojo</value>
+				<value>com.ppms.pojo.BoxingDetailsPojo</value>
+				<value>com.ppms.pojo.BoxingsPojo</value>
+				<value>com.ppms.pojo.CustomerPojo</value>
+				<value>com.ppms.pojo.SaleOrderPojo</value>
+				<value>com.ppms.pojo.SaleOrderProductPojo</value>
+				<value>com.ppms.pojo.ReferencesPojo</value>
+				<value>com.ppms.pojo.GstInvoicePojo</value>
+				<value>com.ppms.pojo.GstInvoiceProductPojo</value>
+				<value>com.ppms.pojo.BankAccountPojo</value>
+				<value>com.ppms.pojo.BankEntryPojo</value>
+				<value>com.ppms.pojo.PaymentsPojo</value>
+			</list>
+		</property>
+		 
+	    <property name="hibernateProperties">  
+
+			 <props>
+			 	<prop key="current_session_context_class">thread</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.cache.use.query_cache">false</prop> 
+				<!-- <prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop> -->
+				<!-- <prop key="hibernate.current_session_context_class">thread</prop>  --> 
+				
+			 </props>
+			
+	 </property> 
+	</bean>
+   
+   
+</beans>

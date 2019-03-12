@@ -1,0 +1,368 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sms</groupId>
+  <artifactId>PPMSWebApp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+ 	<properties>
+		<java-version>1.8</java-version>
+		<org.springframework-version>4.3.9.RELEASE</org.springframework-version>
+		<spring.security.version>4.2.3.RELEASE</spring.security.version>
+		<spring.ws.version>2.1.4.RELEASE</spring.ws.version>
+		<org.slf4j-version>1.7.25</org.slf4j-version> 
+		<org.hibernate-version>4.3.11.Final</org.hibernate-version>
+		<org.mysql-version>5.1.6</org.mysql-version>
+	</properties>
+	
+	<repositories>
+	 <repository>
+		<id>ckfinder-mvn-repo-on-github</id>
+		<url>https://raw.github.com/buzheng/ckfinder-mvn-repo/master/</url>
+	</repository>
+	</repositories>
+	
+	<dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+  
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-test</artifactId>
+    		<version>${org.springframework-version}</version>
+    		<scope>test</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-orm</artifactId>
+    		<version>${org.springframework-version}</version>
+		</dependency>
+		
+		
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-oxm -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-oxm</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+			<dependency>
+			    <groupId>commons-codec</groupId>
+			    <artifactId>commons-codec</artifactId>
+			    <version>1.4</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-io -->
+		 <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>1.3.2</version>
+		</dependency>
+
+		
+		 <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		   <dependency>
+		       <groupId>org.springframework</groupId>
+		       <artifactId>spring-context-support</artifactId>
+		       <version>${org.springframework-version}</version>
+		   </dependency>
+		
+			<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+			  <dependency>
+			      <groupId>javax.mail</groupId>
+			      <artifactId>javax.mail-api</artifactId>
+			      <version>1.5.1</version>
+			  </dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+    		<groupId>mysql</groupId>
+    		<artifactId>mysql-connector-java</artifactId>
+    		<version>${org.mysql-version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.apache.commons</groupId>
+    		<artifactId>commons-dbcp2</artifactId>
+    		<version>2.1.1</version>
+		</dependency>
+		
+			<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<dependency>
+    		<groupId>org.codehaus.jackson</groupId>
+    		<artifactId>jackson-mapper-asl</artifactId>
+    		<version>1.9.0</version>
+		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-databind</artifactId>
+    		<version>2.8.9</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+		
+				
+		
+		<!-- Apache Commons Upload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<!-- Apache Commons Upload -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		
+		
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- For Connection Pooling -->
+		<!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+		<dependency>
+    		<groupId>c3p0</groupId>
+    		<artifactId>c3p0</artifactId>
+    		<version>0.9.0.4</version>
+		</dependency>
+
+		<dependency>
+		   <groupId>org.json</groupId>
+		   <artifactId>org.json</artifactId>
+		   <version>chargebee-1.0</version>
+		</dependency>
+		
+
+	<!-- @Transaction -->
+	<dependency>
+  		<groupId>javax.transaction</groupId>
+  		<artifactId>jta</artifactId>
+  		<version>1.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+    		<groupId>org.hibernate</groupId>
+    		<artifactId>hibernate-core</artifactId>
+    		<version>${org.hibernate-version}</version>
+		</dependency>
+
+		<!--@Cglib -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>	
+			
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+				
+		<!-- Servlet -->
+		 <dependency>
+		   <groupId>javax.servlet</groupId>
+		   <artifactId>javax.servlet-api</artifactId>
+		   <version>3.1.0</version>
+		   <!-- <scope>provided</scope> -->
+		  </dependency>
+		  <dependency>
+		   <groupId>javax.servlet.jsp</groupId>
+		   <artifactId>javax.servlet.jsp-api</artifactId>
+		   <version>2.3.1</version>
+		   <!-- <scope>provided</scope> -->
+		  </dependency>
+		  <dependency>
+		   <groupId>jstl</groupId>
+		   <artifactId>jstl</artifactId>
+		   <version>1.2</version>  
+		  </dependency>
+	<!-- https://mvnrepository.com/artifact/org.webjars/ckeditor -->
+		<!-- <dependency>
+    		<groupId>org.webjars</groupId>
+   			 <artifactId>ckeditor</artifactId>
+   			 <version>4.4.7</version>
+		</dependency> -->
+	
+		<!-- ckeditor -->
+		<!-- https://mvnrepository.com/artifact/com.ckeditor/ckeditor-java-core -->
+		<dependency>
+    		<groupId>com.ckeditor</groupId>
+    		<artifactId>ckeditor-java-core</artifactId>
+    		<version>3.5.3</version>
+		</dependency>
+		
+		<!-- ckfinder -->
+		       
+		<!-- <dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinder</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-Watermark</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-ImageResize</artifactId>
+			<version>2.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ckfinder</groupId>
+			<artifactId>CKFinderPlugin-FileEditor</artifactId>
+			<version>2.4.1</version>
+		</dependency> -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.coobird</groupId>
+			<artifactId>thumbnailator</artifactId>
+			<version>0.4.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>jboss-vfs</artifactId>
+			<version>3.2.11.Final</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/opensymphony/sitemesh -->
+		<dependency>
+		    <groupId>opensymphony</groupId>
+		    <artifactId>sitemesh</artifactId>
+		    <version>2.4.2</version>
+		</dependency>
+		
+  </dependencies>  
+  
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.6</version>
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+        </plugin>
+        <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+         <plugin>
+		<groupId>org.apache.tomcat.maven</groupId>
+		<artifactId>tomcat8-maven-plugin</artifactId>
+		<version>2.2</version>
+		<configuration>
+			<url>http://localhost:8080/manager/text</url>
+			<server>TomcatServer</server>
+			<path>/PPMSWebApp</path>
+		</configuration>
+		</plugin>
+    </plugins>
+</build>
+</project>
